@@ -1,0 +1,25 @@
+clear all
+clc
+close all
+% 1. Duomenų paruošimas
+x1 = 0:0.05:1;
+x2 = 0:0.05:1;
+for i=1:length(x1)
+    for j=1:length(x2)
+        y(i,j) = -sin(4*pi*x1(i)) + 2 * sin(pi*x2(j));
+    end
+end
+surf(x1,x2,y)
+N = 8;
+M = length(x1);
+
+for 
+    for n = N:-1:1 
+        A(i,n) = A(:,n+1).*x1'; 
+    end
+end
+th = (A\y')'; 
+yi = polyval(th,[x1' x2'])
+
+figure
+surf(x1,x2,yi)
