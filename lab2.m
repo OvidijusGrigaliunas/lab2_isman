@@ -39,16 +39,17 @@ for k = 1:1000
     end
 end
 
+X2 = 0:0.01:1;
 
-for j = 1:length(X)
+for j = 1:length(X2)
     v(1,2) = 0;
     for i = 1:n
-        v(i,1) = X(j) * w(i,1) + b(i,1);
+        v(i,1) = X2(j) * w(i,1) + b(i,1);
         y(i) = (exp(v(i,1))-exp(-v(i,1)))/(exp(v(i,1))+exp(-v(i,1)));
     end
     v(1,2) = sum(w(:,2)'.*y') + b(1,2);
     y_apskaiciuota(j) = v(1,2);
 end
 figure
-plot(X,Y, '*',X, y_apskaiciuota, 'rx')
+plot(X,Y, '*',X2, y_apskaiciuota, 'rx')
 legend('Tikroji',"Apskaičiuota")
